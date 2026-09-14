@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Open in the LinguaCast app</title>
+    <meta name="robots" content="noindex" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f7fafa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101e2c" media="(prefers-color-scheme: dark)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
+    />
+    <style>
+      :root {
+        --background: #f7fafa;
+        --foreground: #1b3149;
+        --card: #ffffff;
+        --card-ring: rgba(27, 49, 73, 0.1);
+        --primary: #0bc3bc;
+        --primary-foreground: #10283a;
+        --primary-hover: #0ab0aa;
+        --secondary: #e7eff0;
+        --muted-foreground: #4f6474;
+        --border: #d6e4e6;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --background: #101e2c;
+          --foreground: #e8f2f3;
+          --card: #1b3348;
+          --card-ring: rgba(232, 242, 243, 0.1);
+          --primary-hover: #2ed3cc;
+          --secondary: #1b3348;
+          --muted-foreground: #93aeb8;
+          --border: #274158;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+        background: var(--background);
+        color: var(--foreground);
+        font: 14px/1.5 "Space Grotesk", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-wrap: pretty;
+      }
+      :focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.06;
+        letter-spacing: -0.035em;
+      }
+      p {
+        margin: 0;
+        color: var(--muted-foreground);
+        font-size: 13.5px;
+      }
+
+      .lockup {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+      }
+      .lockup::before {
+        content: "";
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      .card {
+        width: 100%;
+        max-width: 420px;
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 17px;
+        text-align: center;
+        background: var(--card);
+        border-radius: 20px;
+        box-shadow: inset 0 0 0 1px var(--card-ring);
+      }
+
+      .spinner {
+        width: 44px;
+        height: 44px;
+        border: 3px solid var(--border);
+        border-top-color: var(--primary);
+        border-radius: 50%;
+        animation: spin 0.9s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(1turn);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .spinner {
+          animation: none;
+        }
+      }
+
+      .target {
+        max-width: 100%;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: var(--secondary);
+        color: var(--muted-foreground);
+        font: 12px ui-monospace, SFMono-Regular, Menlo, monospace;
+        overflow-wrap: anywhere;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0 17px;
+        border-radius: 999px;
+        background: var(--primary);
+        color: var(--primary-foreground);
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 16px 40px rgba(11, 195, 188, 0.35);
+        transition:
+          background 150ms ease,
+          transform 120ms ease;
+      }
+      .btn:hover {
+        background: var(--primary-hover);
+      }
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .link {
+        color: var(--muted-foreground);
+        font-size: 13px;
+        text-underline-offset: 3px;
+      }
+      .link:hover {
+        color: var(--foreground);
+      }
+
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .badges a {
+        display: inline-flex;
+        border-radius: 8px;
+      }
+      .badges img {
+        height: 44px;
+      }
+      /* The Google Play PNG has ~25% transparent padding baked in. */
+      .badges .google {
+        height: 66px;
+        margin: -11px 0;
+      }
+
+      .foot {
+        max-width: 420px;
+        font-size: 12px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lockup">LinguaCast</div>
+
+    <main class="card">
+      <div class="spinner" id="spinner"></div>
+      <h1 id="title">Opening the app</h1>
+      <p id="note">If nothing happens in a moment, use the button below.</p>
+      <div class="target" id="target" hidden></div>
+
+      <a class="btn" id="cta" hidden>Open</a>
+
+      <div class="badges" id="badges" hidden>
+        <a id="apple-badge">
+          <img
+            alt="Download on the App Store"
+            src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+          />
+        </a>
+        <a id="google-badge">
+          <img
+            class="google"
+            alt="Get it on Google Play"
+            src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+          />
+        </a>
+      </div>
+
+      <a class="link" id="browser-link" hidden>Continue in the browser</a>
+    </main>
+
+    <p class="foot">This link opens the channel in the LinguaCast app if it is installed.</p>
+
+    <script type="module">
+      const APP_STORE_URL = "https://apps.apple.com/us/app/google/id284815942";
+      const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox";
+      const REDIRECT_DELAY_MS = 1200;
+
+      const $ = (id) => document.getElementById(id);
+
+      function parseListenerUrl(raw) {
+        if (!raw) return null;
+        try {
+          return new URL(/^https?:\/\//i.test(raw) ? raw : `https://${raw}`);
+        } catch {
+          return null;
+        }
+      }
+
+      function detectPlatform() {
+        const ua = navigator.userAgent;
+        if (/android/i.test(ua)) return "android";
+        if (/iPad|iPhone|iPod/.test(ua)) return "ios";
+        // iPadOS reports itself as desktop Safari; a touch-capable Mac is an iPad.
+        if (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) return "ios";
+        return null;
+      }
+
+      const listenerUrl = parseListenerUrl(new URLSearchParams(location.search).get("url")?.trim());
+      if (listenerUrl) {
+        $("target").textContent = listenerUrl.host + listenerUrl.pathname.replace(/\/$/, "") + listenerUrl.search;
+        $("target").hidden = false;
+        $("browser-link").href = listenerUrl.href;
+        $("browser-link").hidden = false;
+      }
+
+      $("apple-badge").href = APP_STORE_URL;
+      $("google-badge").href = PLAY_STORE_URL;
+
+      const platform = detectPlatform();
+
+      if (!platform) {
+        $("spinner").hidden = true;
+        $("title").textContent = "Download the mobile app";
+        $("note").textContent = "Open this link on your phone, or install the app from your store.";
+        $("badges").hidden = false;
+      } else {
+        const storeUrl = platform === "ios" ? APP_STORE_URL : PLAY_STORE_URL;
+        const storeName = platform === "ios" ? "the App Store" : "Google Play";
+
+        $("title").textContent = `Opening ${storeName}…`;
+        $("note").textContent = "The LinguaCast app is not installed yet. Taking you there now.";
+        $("cta").textContent = `Open ${storeName}`;
+        $("cta").href = storeUrl;
+        $("cta").hidden = false;
+
+        // Embedded previews and in-app frames must not be navigated away.
+        if (window.top === window.self) {
+          setTimeout(() => location.replace(storeUrl), REDIRECT_DELAY_MS);
+        }
+      }
+    </script>
+  </body>
+</html>
