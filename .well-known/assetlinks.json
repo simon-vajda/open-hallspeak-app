@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "app.linguacast.mobile",
+      "package_name": "app.hallspeak.mobile",
       "sha256_cert_fingerprints": ["PLAY_APP_SIGNING_SHA256", "UPLOAD_KEY_SHA256"]
     }
   }

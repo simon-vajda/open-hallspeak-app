@@ -1,12 +1,12 @@
-# open.linguacast.app
+# open.hallspeak.app
 
-The redirect page behind `https://open.linguacast.app?url=<listener-url>`.
+The redirect page behind `https://open.hallspeak.app?url=<listener-url>`.
 
-A listener page on any LinguaCast domain offers "Open in the app" with a link to this
+A listener page on any Hallspeak domain offers "Open in the app" with a link to this
 domain. That single link does two jobs:
 
 - **App installed** — the domain is registered as a universal / app link, so the OS hands
-  the URL to the LinguaCast app, which opens the channel. This page never loads.
+  the URL to the Hallspeak app, which opens the channel. This page never loads.
 - **App not installed** — the browser loads this page. It detects the platform from the
   user agent, shows "Opening the App Store…" or "Opening Google Play…" for about a second,
   then redirects to the store listing. If the platform cannot be determined it shows
@@ -17,7 +17,7 @@ domain. That single link does two jobs:
 The site currently ships with placeholders. Replace them once the apps are in the stores:
 
 - [ ] `index.html` — `APP_STORE_URL` and `PLAY_STORE_URL` point at unrelated apps; set them to
-      the LinguaCast listings.
+      the Hallspeak listings.
 - [ ] `.well-known/apple-app-site-association` — replace `APPLE_TEAM_ID` with the Apple
       Developer Team ID (developer.apple.com → Membership).
 - [ ] `.well-known/assetlinks.json` — replace `PLAY_APP_SIGNING_SHA256` with the app signing

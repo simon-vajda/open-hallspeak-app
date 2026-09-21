@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Open in the LinguaCast app</title>
+    <title>Open in the Hallspeak app</title>
     <meta name="robots" content="noindex" />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#f7fafa" media="(prefers-color-scheme: light)" />
@@ -198,7 +198,7 @@
     </style>
   </head>
   <body>
-    <div class="lockup">LinguaCast</div>
+    <div class="lockup">Hallspeak</div>
 
     <main class="card">
       <div class="spinner" id="spinner"></div>
@@ -220,7 +220,7 @@
       <a class="link" id="browser-link" hidden>Continue in the browser</a>
     </main>
 
-    <p class="foot">This link opens the channel in the LinguaCast app if it is installed.</p>
+    <p class="foot">This link opens the channel in the Hallspeak app if it is installed.</p>
 
     <script type="module">
       const APP_STORE_URL = "https://apps.apple.com/us/app/google/id284815942";
@@ -270,7 +270,7 @@
         const storeName = platform === "ios" ? "the App Store" : "Google Play";
 
         $("title").textContent = `Opening ${storeName}…`;
-        $("note").textContent = "The LinguaCast app is not installed yet. Taking you there now.";
+        $("note").textContent = "The Hallspeak app is not installed yet. Taking you there now.";
         $("cta").textContent = `Open ${storeName}`;
         $("cta").href = storeUrl;
         $("cta").hidden = false;
