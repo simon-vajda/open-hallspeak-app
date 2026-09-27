@@ -98,14 +98,12 @@
         gap: 10px;
         font-size: 17px;
         font-weight: 600;
+        line-height: 1;
         letter-spacing: -0.03em;
       }
-      .lockup::before {
-        content: "";
-        width: 22px;
+      .lockup img {
+        width: auto;
         height: 22px;
-        border-radius: 50%;
-        background: var(--primary);
       }
 
       .card {
@@ -212,7 +210,7 @@
     </style>
   </head>
   <body>
-    <div class="lockup">Hallspeak</div>
+    <div class="lockup"><img src="logo-mark.svg" alt="" width="14" height="22" />Hallspeak</div>
 
     <main class="card">
       <div class="spinner" id="spinner"></div>
