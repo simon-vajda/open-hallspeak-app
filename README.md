@@ -12,20 +12,15 @@ domain. That single link does two jobs:
   then redirects to the store listing. If the platform cannot be determined it shows
   "Download the mobile app" with both official store badges instead.
 
-## Before the apps are published
+## Store and signing identifiers
 
-The site currently ships with placeholders. Replace them once the apps are in the stores:
-
-- [ ] `index.html` — `APP_STORE_URL` and `PLAY_STORE_URL` point at unrelated apps; set them to
-      the Hallspeak listings.
-- [ ] `.well-known/apple-app-site-association` — replace `APPLE_TEAM_ID` with the Apple
-      Developer Team ID (developer.apple.com → Membership).
-- [ ] `.well-known/assetlinks.json` — replace `PLAY_APP_SIGNING_SHA256` with the app signing
-      key certificate fingerprint (Play Console → Test and release → App integrity), and
-      `UPLOAD_KEY_SHA256` with the upload/EAS key fingerprint (`eas credentials -p android`),
-      or remove it if builds are only distributed through Play.
-
-Until then universal / app links do not verify, so every link loads this page.
+- `index.html` — `APP_STORE_URL` is the App Store listing (Apple ID `6816664866`) and
+  `PLAY_STORE_URL` the Play listing (`app.hallspeak.mobile`). Until an app is public, its
+  listing is visible only to its testers.
+- `.well-known/apple-app-site-association` — Apple Developer Team ID `DB4BLJB7ZB`.
+- `.well-known/assetlinks.json` — two fingerprints: the Play app signing key (Play Console →
+  Protect with Play → Play app signing), which signs every install from Play, and the
+  upload key held by EAS, which signs builds installed outside Play.
 
 The fingerprints belong to the signing keys, not to a build: they stay the same across
 releases. Add a new fingerprint alongside the old one only if a key is rotated or builds

@@ -2,7 +2,7 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["APPLE_TEAM_ID.app.hallspeak.mobile"],
+        "appIDs": ["DB4BLJB7ZB.app.hallspeak.mobile"],
         "components": [{ "/": "/" }]
       }
     ]

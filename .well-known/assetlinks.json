@@ -4,7 +4,7 @@
     "target": {
       "namespace": "android_app",
       "package_name": "app.hallspeak.mobile",
-      "sha256_cert_fingerprints": ["PLAY_APP_SIGNING_SHA256", "UPLOAD_KEY_SHA256"]
+      "sha256_cert_fingerprints": ["A4:2C:D0:BE:77:D1:D2:29:F0:45:E2:28:F7:05:B7:3A:E7:3F:FD:46:85:FD:F7:5B:19:E3:80:41:A2:60:BD:0F", "98:E0:87:16:50:1D:8E:54:70:35:17:12:C9:68:8B:47:1D:E8:48:C3:EC:D7:90:4F:22:96:85:1E:78:E6:08:B8"]
     }
   }
 ]
